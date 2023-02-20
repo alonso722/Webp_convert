@@ -27,8 +27,7 @@ files.forEach(element => {
         console.log(string2);
         console.log(string2[0]+'.webp');
         console.log(string2[0]+'.jpg');
-            console.log("Agregando otra linea de main_2");
-            console.log("Agregando otra linea de main_2 desde github para hacer pull");
+        console.log("Eliminamos console logs");
         try {
         const result = webp.dwebp(dir2+'/'+string2[0]+'.webp',dir2+'/'+string2[0]+'.jpg',"-o",logging="-v");
         result.then((response) => {
