@@ -22,6 +22,7 @@ files.forEach(element => {
         files2.forEach(element2=>
             {
         console.log(element2);
+            
         string2 = element2.split(".");
         console.log(string2);
         console.log(string2[0]+'.webp');
