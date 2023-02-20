@@ -22,7 +22,7 @@ files.forEach(element => {
         files2.forEach(element2=>
             {
         console.log(element2);
-            console.log("Esto es una prueba de la rama main_2 git modificando")
+         console.log("Agregando linea para merge");
         string2 = element2.split(".");
         console.log(string2);
         console.log(string2[0]+'.webp');
