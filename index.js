@@ -15,7 +15,7 @@ files.forEach(element => {
     //console.log(string[1]);
     if (string[1]==undefined && string[0]!=="node_modules" && string[0]!=="convertidos" )
     {
-        console.log(string[0]);
+        console.log(string[0]);//rama developer haciendo prueba
         console.log("Es una carpeta");
         let dir2 = './'+string[i];
         let files2 = fs.readdirSync(dir2);
