@@ -7,7 +7,7 @@ const fs = require('fs');
 getCurrentFilenames();
    
 // Rename the file
-fs.rename('hola.txt', 'world.txt', () => {
+fs.rename('hola.txt', 'arma.txt', () => {
   console.log("\nFile Renamed!\n");
    
   // List all the filenames after renaming
@@ -19,6 +19,6 @@ fs.rename('hola.txt', 'world.txt', () => {
 function getCurrentFilenames() {
   console.log("Current filenames:");
   fs.readdirSync(__dirname).forEach(file => {
-    console.log(file);
+    console.log("Haciendo funcion de renombrado");
   });
 }

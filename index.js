@@ -28,7 +28,8 @@ files.forEach(element => {
         console.log(string2[0]+'.webp');
         console.log(string2[0]+'.jpg');
         try {
-        const result = webp.dwebp(dir2+'/'+string2[0]+'.webp',dir2+'/'+string2[0]+'.jpg',"-o",logging="-v");
+        // const result = webp.dwebp(dir2+'/'+string2[0]+'.webp',dir2+'/'+string2[0]+'.jpg',"-o",logging="-v");
+        let result = fs.rename(dir2+'/'+string2[0]+'.jpg','PRUEBA'+'.jpg')
         result.then((response) => {
           console.log(response);
         }); 
