@@ -19,7 +19,7 @@ files.forEach(element => {
         console.log("Es una carpeta");
         let dir2 = './'+string[i];
         let files2 = fs.readdirSync(dir2);
-        files2.forEach(element2=>
+        files2.forEach((element2,index)=>
             {
         console.log(element2);
          console.log("Agregando linea para merge");
@@ -28,11 +28,26 @@ files.forEach(element => {
         console.log(string2[0]+'.webp');
         console.log(string2[0]+'.jpg');
         try {
+            console.log(dir2+'/'+string2[0]+'.jpg');
         // const result = webp.dwebp(dir2+'/'+string2[0]+'.webp',dir2+'/'+string2[0]+'.jpg',"-o",logging="-v");
-        let result = fs.rename(dir2+'/'+string2[0]+'.jpg','PRUEBA'+'.jpg')
-        result.then((response) => {
-          console.log(response);
-        }); 
+        let result = fs.rename(dir2+'/'+string2[0]+'.jpg',dir2+'/'+string[0]+index+'.jpg', (error) => {
+            if (error) {
+                
+              // Show the error 
+              console.log(error);
+            }
+            else {
+            
+              // List all the filenames after renaming
+              console.log("\nFile Renamed\n");
+             
+              // List all the filenames after renaming
+            }
+          });
+        // console.log(result);
+        // result.then((response) => {
+        //   console.log(response);
+        // }); 
 
         } catch (error) {
             console.error();
