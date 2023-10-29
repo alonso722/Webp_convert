@@ -7,6 +7,7 @@ const readline = require("readline");
 webp.grant_permission();
 //pass input image(.webp image) path ,output image(.jpeg,.pnp .....)
 let i = 0;
+let contadorExist = 0;
 //dwebp(input,output,option)
 const dir = "./";
 const files = fs.readdirSync(dir);
@@ -34,33 +35,19 @@ files.forEach((element) => {
 
       try {
         // const result = webp.dwebp(dir2+'/'+string2[0]+'.webp',dir2+'/'+string2[0]+'.jpg',"-o",logging="-v");
-        if (string2[1] == "txt") {
-          // Rutas de los archivos de entrada y salida
+
+        if (string2[1] == "jpg") {
           let archivoEntrada = `${dir2}/${string2[0]}.txt`;
           let archivoSalida = `${dir2}/${string2[0]}.txt`;
+          let archivoName = `${dir2}/${string2[0]}`;
+          // Rutas de los archivos de entrada y salida
+          if (!fs.existsSync(archivoEntrada)) {
+            contadorExist++;
+            console.log(archivoName);
+          }
+
           try {
-            let data = fs.readFileSync(archivoEntrada, "utf8");
-            let lineas = data.split("\n");
-            let dataConverted = lineas
-              .map((linea) => {
-                let datos = linea.split(" ");
-                let lineaConverted;
-                if (datos[0] == clase_a_quitar) {
-                  datos[0] = clase_a_meter;
-                  contador++;
-                  console.log(archivoSalida);
-                  lineaConverted = datos.join(" ");
-                  return lineaConverted;
-                } else {
-                  return linea;
-                }
-              })
-              .join("\n");
-            //console.log(linea);
-            // console.log(dataConverted);
-            // console.log(dataConverted);
-            fs.writeFileSync(archivoSalida, dataConverted);
-            console.log("contador:" + clase_a_quitar + ":" + contador);
+            // console.log("Existence: " + contadorExist);
           } catch (error) {
             console.error("Error al leer el archivo:", error);
             return;
