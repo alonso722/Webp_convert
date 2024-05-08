@@ -44,9 +44,11 @@ function main() {
             let archivotxt = `${dir2}/${string2[0]}.txt`;
             try {
               let data = fs.readFileSync(archivotxt, "utf8");
+              console.log(data)
               let lineas = data.split("\n");
               let dataConverted = lineas.map((linea) => {
                 let datos = linea.split(" ");
+                console.log("SI"+JSON.stringify(miArray[datos[0] * 1] ,null,3))
                 miArray[datos[0] * 1].total = miArray[datos[0] * 1].total + 1;
                 console.log(
                   JSON.stringify(

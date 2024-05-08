@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "resize-img": "^2.0.0",
+    "sharp": "^0.33.2",
     "webp-converter": "^2.3.3"
   }
 }

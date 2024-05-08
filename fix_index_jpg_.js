@@ -42,20 +42,10 @@ files.forEach((element) => {
           // Rutas de los archivos de entrada y salida
           let name = `${nameArchivo}_${contador}`;
           let archivojpg = `${dir2}/${string2[0]}.jpg`;
-          let archivotxt = `${dir2}/txt/${string2[0]}.txt`;
-
           let Newarchivojpg = `${dir2}/${name}.jpg`;
-          let Newarchivotxt = `${dir2}/txt/${name}.txt`;
 
           try {
-            if (fs.existsSync(archivotxt) && fs.existsSync(archivojpg)) {
-              let res = fs.rename(archivotxt, Newarchivotxt, (error) => {
-                if (error)
-                  console.error(
-                    "Error hacer rename archivo txt:" + archivotxt,
-                    error
-                  );
-              });
+            if (fs.existsSync(archivojpg)) {
               let result = fs.rename(archivojpg, Newarchivojpg, (error) => {
                 if (error)
                   console.error(
@@ -67,9 +57,7 @@ files.forEach((element) => {
               contador++;
             } else {
               console.log(
-                "Error\ntxt:" +
-                  fs.existsSync(archivotxt) +
-                  "\njpg:" +
+                "Error jpg:" +
                   fs.existsSync(archivojpg)
               );
             }

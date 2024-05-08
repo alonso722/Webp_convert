@@ -10,8 +10,38 @@ let i = 0;
 //dwebp(input,output,option)
 const dir = "./";
 const files = fs.readdirSync(dir);
-let clase_a_quitar = "19";
-let clase_a_meter = "3";
+let clase_a_quitar = "0";
+let clase_a_meter = "0";
+const clases = [
+  {
+    id_clase: "0",
+    salida: "80"
+  },
+  {
+    id_clase: "1",
+    salida: "81"
+  },
+  {
+    id_clase: "2",
+    salida: "82"
+  },
+  {
+    id_clase: "3",
+    salida: "83"
+  },
+  {
+    id_clase: "4",
+    salida: "84"
+  },
+  {
+    id_clase: "5",
+    salida: "85"
+  },
+  {
+    id_clase: "6",
+    salida: "86"
+  },
+];
 let str2 = "";
 contador = 0;
 files.forEach((element) => {
@@ -45,8 +75,11 @@ files.forEach((element) => {
               .map((linea) => {
                 let datos = linea.split(" ");
                 let lineaConverted;
-                if (datos[0] == clase_a_quitar) {
-                  datos[0] = clase_a_meter;
+
+                let find = clases.find(x=>(x.id_clase==datos[0]));
+
+                if (clases.find(x=>(x.id_clase==datos[0]))) {
+                  datos[0] = (find) ? find.salida : find.id_clase ;
                   contador++;
                   console.log(archivoSalida);
                   lineaConverted = datos.join(" ");
@@ -60,7 +93,7 @@ files.forEach((element) => {
             // console.log(dataConverted);
             // console.log(dataConverted);
             fs.writeFileSync(archivoSalida, dataConverted);
-            console.log("contador:" + clase_a_quitar + ":" + contador);
+            console.log("Total de cambios :" + contador);
           } catch (error) {
             console.error("Error al leer el archivo:", error);
             return;
